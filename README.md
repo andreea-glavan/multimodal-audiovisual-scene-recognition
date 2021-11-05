@@ -18,7 +18,7 @@ Year = {2021}
 ```
 
 
-![Proposed MultiModal Pipeline for Scene Classification in Videos](https://imgur.com/a/baXBWTz)
+![Proposed MultiModal Pipeline for Scene Classification in Videos](https://i.imgur.com/nWqUoZQ.png)
 
 ## Repository Contents
 
