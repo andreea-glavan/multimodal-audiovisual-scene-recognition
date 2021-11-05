@@ -36,24 +36,15 @@ from keras.preprocessing.text import Tokenizer
 from keras.preprocessing import sequence
 from sklearn.model_selection import KFold
 
-path = "/data/s3083691/"
+path = "/Features/InstaIndoor/"
 
-# instagram
+# instaindoor
 classes = ["19 Cafe", "20 Bar", "22 ReadingRoom", "24 IndoorStadium", "25 Arcade", "27 Library", "28 Closet", "29 BeautySalon", "30 Aquarium"] # folder names
 class_names = ["Cafe", "Bar", "Reading Room", "Indoor Stadium", "Arcade", "Library", "Closet", "Beauty Salon", "Aquarium"] # class names
 
-
-# youtube 100
+# youtube 8m
 #classes = ["01 Kitchen", "02 Gym", "03 Office", "04 Library", "05 Supermarket", "06 Stadium",  "07 Garage"] #, "08 Museum", "09 Aquarium"] 
 #class_names = ["Kitchen", "Gym", "Office", "Library", "Supermarket", "Stadium", "Garage"] #, "Museum", "Aquarium"]
-
-# hw2
-#classes = ["EXT-House", "EXT-Road", "INT-Bedroom", "INT-Car", "INT-Hotel", "INT-Kitchen", "INT-LivingRoom", "INT-Office", "INT-Restaurant", "INT-Shop"]
-#class_names = ["EXT-House", "EXT-Road", "INT-Bedroom", "INT-Car", "INT-Hotel", "INT-Kitchen", "INT-LivingRoom", "INT-Office", "INT-Restaurant", "INT-Shop"]
-
-
-data_path = "/data/pg-instvid/"
-
 
 ### global parameters
 # image features
@@ -67,9 +58,8 @@ max_len = 100
 # network features
 num_epochs = 20
 lr = 0.001
-batches = 1
+batches = 8
 num_classes = len(classes)
-
 
 # helper function. plots the confusion matrix based on classification results
 def plot_cm(labels, res, class_names):
@@ -133,7 +123,6 @@ inf = open(path + 'in_test_sum', 'rb')
 img_test = pickle.load(inf)
 img_test = np.asarray(img_test)
 inf.close()
-
 
 # load labels
 inf = open(path + 'labels_train', 'rb')
