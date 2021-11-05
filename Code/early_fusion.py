@@ -105,32 +105,32 @@ def IG_Net(cnn_size, embedding_len):
 
 ### load all data, saved as pickle files
 # load text features
-inf = open(path + 'text_count_train', 'rb')
+inf = open(path + '/Text/' + 'raw_text_train', 'rb')
 text_train = pickle.load(inf)
 inf.close()
 
-inf = open(path + 'text_count_test', 'rb')
+inf = open(path + '/Text/' + 'raw_text_test', 'rb')
 text_test = pickle.load(inf)
 inf.close()
 
 # load visual features
-inf = open(path + 'in_train_sum' , 'rb')
+inf = open(path + '/Visual/' + 'imgnet_train' , 'rb')
 img_train = pickle.load(inf)
 img_train = np.asarray(img_train)
 inf.close()
 
-inf = open(path + 'in_test_sum', 'rb')
+inf = open(path + '/Visual/' + 'imgnet_test', 'rb')
 img_test = pickle.load(inf)
 img_test = np.asarray(img_test)
 inf.close()
 
 # load labels
-inf = open(path + 'labels_train', 'rb')
+inf = open(path + '/Labels/' + 'labels_train', 'rb')
 train_labels = pickle.load(inf)
 train_labels = np.asarray(train_labels)
 inf.close()
 
-inf = open(path + 'labels_test', 'rb')
+inf = open(path + '/Labels/' + 'labels_test', 'rb')
 test_labels = pickle.load(inf)
 test_labels = np.asarray(test_labels)
 inf.close()
