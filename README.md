@@ -9,16 +9,16 @@ The two proposed datasets envelop 9 indoor scene classes each, collected through
 If you find this material useful in your research, please cite:
 
 ```bash
-@article{xxx, <br>
-Author = {A. Glavan and E. Talavera}, <br>
-Title = {InstaIndoor and Multi-modal Deep Learning for Indoor Scene Recognition}, <br>
-journal  = {Neural Computing with Applications}, <br>
-Year = {2021} <br>
+@article{xxx, 
+Author = {A. Glavan and E. Talavera}, 
+Title = {InstaIndoor and Multi-modal Deep Learning for Indoor Scene Recognition}, 
+journal  = {Neural Computing with Applications}, 
+Year = {2021} 
 }
 ```
 
 
-![alt text](http://prntscr.com/1yf1ouy)
+![Proposed MultiModal Pipeline for Scene Classification in Videos](https://imgur.com/a/baXBWTz)
 
 ## Repository Contents
 
