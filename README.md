@@ -2,11 +2,11 @@
 
 If you find this material useful in your research, please cite:
 
-@article{xxx,
-Author = {A. Glavan and E. Talavera},
-Title = {InstaIndoor and Multi-modal Deep Learning for Indoor Scene Recognition},
-journal  = {Neural Computing with Applications},
-Year = {2021}
+@article{xxx, <br>
+Author = {A. Glavan and E. Talavera}, <br>
+Title = {InstaIndoor and Multi-modal Deep Learning for Indoor Scene Recognition}, <br>
+journal  = {Neural Computing with Applications}, <br>
+Year = {2021} <br>
 }
 
 This repository contains the source code for the multimodal RNN pipeline for scene recognition in videos. Moreover, we include the extracted multimodal features of the two novel datasets: namely, InstaIndoor and YouTubeIndoor.
