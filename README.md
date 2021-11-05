@@ -12,7 +12,7 @@ If you find this material useful in your research, please cite:
 @article{xxx, 
 Author = {A. Glavan and E. Talavera}, 
 Title = {InstaIndoor and Multi-modal Deep Learning for Indoor Scene Recognition}, 
-journal  = {Neural Computing with Applications}, 
+journal  = {Neural Computing and Applications}, 
 Year = {2021} 
 }
 ```
