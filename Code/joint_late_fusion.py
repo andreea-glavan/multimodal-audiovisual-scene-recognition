@@ -3,9 +3,6 @@
 # early fusion code is in a separate file
 # can handle any of the feature types
 # for images, a frame vs cnn parameter must be set accordinglt
-
-path = "/data/s3083691/InstaIndoor/"
-
 import moviepy.editor as mp
 from sklearn.model_selection import KFold
 import numpy as np
@@ -44,21 +41,15 @@ from nltk.corpus import stopwords
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing import sequence
 
-# instagram
+# instaindoor
 classes = ["19 Cafe", "20 Bar", "22 ReadingRoom", "24 IndoorStadium", "25 Arcade", "27 Library", "28 Closet", "29 BeautySalon", "30 Aquarium"] # folder names
 class_names = ["Cafe", "Bar", "Reading Room", "Indoor Stadium", "Arcade", "Library", "Closet", "Beauty Salon", "Aquarium"] # class names
 
-
-# youtube
+# youtube 8m
 #classes = ["01 Kitchen", "02 Gym", "03 Office", "04 Library", "05 Supermarket", "06 Stadium",  "07 Garage", "08 Museum", "09 Aquarium"] 
 #class_names = ["Kitchen", "Gym", "Office", "Library", "Supermarket", "Stadium", "Garage", "Museum", "Aquarium"]
 
-# hw2
-#classes = ["EXT-House", "EXT-Road", "INT-Bedroom", "INT-Car", "INT-Hotel", "INT-Kitchen", "INT-LivingRoom", "INT-Office", "INT-Restaurant", "INT-Shop"]
-#class_names = ["EXT-House", "EXT-Road", "INT-Bedroom", "INT-Car", "INT-Hotel", "INT-Kitchen", "INT-LivingRoom", "INT-Office", "INT-Restaurant", "INT-Shop"]
-
-data_path = "/data/pg-instvid/"
-
+path = "/Features/InstaIndoor/"
 
 ### global parameters
 # image features
@@ -74,8 +65,6 @@ num_epochs = 20
 lr = 0.001
 batches = 1
 num_classes = len(classes)
-
-
 
 # helper function. plots the confusion matrix based on classification results
 def plot_cm(labels, res, class_names):
@@ -97,7 +86,6 @@ def plot_cm(labels, res, class_names):
     fig, ax = plt.subplots(figsize=(9,9))
     sns.heatmap(cm, annot=annot, cmap = "BuPu", fmt='', ax=ax)
     plt.show()
-
 
 # multimodal network
 # input:
@@ -145,46 +133,44 @@ def IG_Net(visual_mode, cnn_size, fusion):
 
     return model
 
-
 ### load all data, saved as pickle files
 # load text features
-inf = open(path + 'text_e1_train', 'rb')
+inf = open(path + '/Text/' + 'raw_text_train', 'rb')
 text_train = pickle.load(inf)
 text_train = np.asarray(text_train)
 inf.close()
 
-inf = open(path + 'text_e1_test', 'rb')
+inf = open(path + '/Text/' + 'raw_text_test', 'rb')
 text_test = pickle.load(inf)
 text_test = np.asarray(text_test)
 inf.close()
 
 # load visual features
-inf = open(path + 'img' + str(img_height) + '_train_' + str(img_seq_len), 'rb')
+inf = open(path + '/Visual/' + 'imgnet_train' , 'rb')
 img_train = pickle.load(inf)
 img_train = np.asarray(img_train)
 inf.close()
 
-inf = open(path + 'img' + str(img_height) + '_test_' + str(img_seq_len), 'rb')
+inf = open(path + '/Visual/' + 'imgnet_test' , 'rb')
 img_test = pickle.load(inf)
 img_test = np.asarray(img_test)
 inf.close()
 
 # load labels
-inf = open(path + 'labels_train', 'rb')
+inf = open(path + '/Visual/' + 'imgnet_train', 'rb')
 train_labels = pickle.load(inf)
 train_labels = np.asarray(train_labels)
 inf.close()
 
-inf = open(path + 'labels_test', 'rb')
+inf = open(path + '/Visual/' + 'imgnet_test', 'rb')
 test_labels = pickle.load(inf)
 test_labels = np.asarray(test_labels)
 inf.close()
 
-
 # init model
 # MUST specify img_type parameter based on visual feature unused
 # possible values: frames, cnn
-img_type = "frames" # frames or cnn
+img_type = "cnn" # frames or cnn
 size = len(img_train[0]) # unused unless cnn
 fusion = "joint"
 
@@ -200,7 +186,6 @@ callbacks = [earlystop]
 # training
 _ = model.fit(x = [text_train, img_train], y = train_labels, epochs = num_epochs, batch_size = batches,
                     shuffle = True, validation_split = 0.2, callbacks = callbacks)
-
 
 # evaluate results on test set
 res = model.predict([text_test, img_test], batch_size=1)
