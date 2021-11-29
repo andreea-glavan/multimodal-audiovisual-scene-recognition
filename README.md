@@ -9,7 +9,7 @@ The two proposed datasets envelop 9 indoor scene classes each, collected through
 If you find this material useful in your research, please cite:
 
 ```bash
-@article{xxx, 
+@article{glavan2021, 
 Author = {A. Glavan and E. Talavera}, 
 Title = {InstaIndoor and Multi-modal Deep Learning for Indoor Scene Recognition}, 
 journal  = {Neural Computing and Applications}, 
