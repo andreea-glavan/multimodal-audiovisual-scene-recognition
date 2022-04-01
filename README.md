@@ -21,6 +21,9 @@ The multimodal pipeline we propose utilizes joint fusion of visual (CNN processe
 
 ![Proposed MultiModal Pipeline for Scene Classification in Videos](https://i.imgur.com/nWqUoZQ.png)
 
+For a video summary of the methodology and findings of this publication, please check out:
+[![YouTube Summary of MultiModal Indoor Scene Recognition](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](youtu.be/wSP9bvQi7so)
+
 ## Repository Contents
 
 The repository contains two directories: /Code and /Features. In /Code, the Python source code is available for the pipeline variations depending on the fusion strategy employed. In /Features, the two datasets are available in feature vector format, organized at dataset level (InstaIndoor/YouTube). The features are organized as such: 
